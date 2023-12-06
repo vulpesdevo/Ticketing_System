@@ -3,13 +3,11 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-			crossorigin="anonymous"
-		/>
+			crossorigin="anonymous"/>
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -19,89 +17,70 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<link
 			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-		/>
-
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
 		<title>TICKETING</title>
 	</head>
 	<body style="margin: 2rem">
-		<!-- <div class="contatainer-fluid my-3">
+		<div class="contatainer-fluid my-3">
         <div class="row mx-3">
-            <div class="col-lg-3 my-3">
-                <div class="card" style="background-color: black; border: .1rem solid green">
-                    <div class="card-header text-center fw-bold" style="color: green">
-                        COMPLETED
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-around py-1">
-                            <i class="bi bi-bookmark-check-fill fs-1" style="color: green;"></i>   
-                            <h2 class="text-secondary">3</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 my-3">
-                <div class="card" style="background-color: black; border: .1rem solid #ffff0093">
-                    <div class="card-header text-center fw-bold">
+			<div class="col-lg-6 my-3">
+                <div class="card" style=" border: .1rem solid #ffff0093">
+                    <div class="card-header text-bg-warning text-center fw-bold">
                         ON PROCESS
                     </div>
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-around py-1">
                             <i class="bi bi-pencil-square fs-1 text-warning"></i>   
-                            <h2>5</h2>
+                            <h2 class="progress-card-no">0</h2>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 my-3">
-                <div class="card" style="background-color: black; border: .1rem solid #808080">
-                    <div class="card-header text-center fw-bold">
-                        ON QUEUE
+            <div class="col-lg-6 my-3 solveed-card">
+                <div class="card" style=" border: .1rem solid green">
+                    <div class="card-header text-bg-success text-center fw-bold" style="color: green">
+                        SOLVED
                     </div>
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-around py-1">
-                            <i class="bi bi-list-task fs-1 text-secondary"></i>   
-                            <h2>8</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 my-3">
-                <div class="card" style="background-color: black; border: .1rem solid red">
-                    <div class="card-header text-center fw-bold">
-                        OVERDUE
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-around py-1 ">
-                            <i class="bi bi-exclamation-diamond fs-1 text-danger"></i>   
-                            <h2>5</h2>
+                            <i class="bi bi-bookmark-check-fill fs-1" style="color: green;"></i>   
+                            <h2 class="solved-card-no">0</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
-
-		<div class="divider"></div>
+    </div>
+	<div class="container-fluid mb-3" >
+		<div class="row">
+			<button type="button" class="btn btn-primary" id="add-ticket"data-bs-toggle="modal" data-bs-target="#viewTicketModal">Add Ticket</button>
+		</div>
+	</div> 
+		<div class="divider mb-3"></div>
 		<div class="_cont">
-			<div class="tab-box">
-				<button class="tab-btn active">ON QUEUE</button>
-				<button class="tab-btn">ON GOING</button>
-				<button class="tab-btn">SOLVED</button>
-				<div class="all-btns mt-4 mx-5">
+			<div class="tab-box ">
+				<div class="custom-select mt-4">
+					<select id="tabSelector">
+						<option value="all">All</option>
+						<option value="tab1">IN PROGRESS</option>
+						<option value="tab2">SOLVED</option>
+						<option value="tab3">CANCELLED</option>
+					</select>
+				</div>
+				<div class="all-btns mt-4 text-end" style="width: 100%;">
 					<button class="viewer btn btn-dark" data-bs-toggle="modal" data-bs-target="#viewTicketModal">VIEW</button>
-					<button class="viewer btn btn-warning" data-bs-toggle="modal" data-bs-target="#editTicketModal">EDIT</button>
 					<button class="delete-ticket btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" >DELETE</button>
 				</div>
 			</div>
+
 			<div class="cont-box">
 				<div class="_content active">
-					<table class="table table-bg-going table-responsive-md table-sm">
-						<thead class="table-dark">
-							<tr>
+					<table class="table table-hover  table-responsive-md table-sm" id="table-onqueue">
+						<thead class="table table-info">
+							<tr >
 								<th scope="col">Ticket ID</th>
 								<th scope="col">Customer Name</th>
-								<th scope="col">Contact Number</th>
+								<th scope="col">Account Number</th>
 								<th scope="col">Issue Description</th>
 								<th scope="col">Assigned Team</th>
 								<th scope="col">Status</th>
@@ -109,7 +88,47 @@
 								<th scope="col">Deadline</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="table-group-divider">
+							<tr>
+								<th class="align-middle" scope="row">TKT001</th>
+								<td class="align-middle">John Doe</td>
+								<td class="align-middle">123-456-7890</td>
+								<td class="align-middle">Internet Connection</td>
+								<td class="align-middle">Tech Support</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-15</td>
+							</tr>
+							<tr >
+								<th class="align-middle" scope="row">TKT002</th>
+								<td class="align-middle">Jane Smith</td>
+								<td class="align-middle">987-654-3210</td>
+								<td class="align-middle">Landline Disconnection</td>
+								<td class="align-middle">Line Repair</td>
+								<td class="align-middle">CANCELLED</td>
+								<td class="align-middle">Medium</td>
+								<td class="align-middle">2023-01-20</td>
+							</tr>
+							<tr>
+								<th class="align-middle" scope="row">TKT003</th>
+								<td class="align-middle">Mary Johnson</td>
+								<td class="align-middle">456-789-0123</td>
+								<td class="align-middle">Slow Broadband Speed</td>
+								<td class="align-middle">Network Team</td>
+								<td class="align-middle">SOLVED</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-10</td>
+							</tr>
+							<tr>
+								<th class="align-middle" scope="row">TKT004</th>
+								<td class="align-middle">Robert Williams</td>
+								<td class="align-middle">321-098-7654</td>
+								<td class="align-middle">Billing Inquiry</td>
+								<td class="align-middle">Billing Team</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">Low</td>
+								<td class="align-middle">2023-01-25</td>
+							</tr>
 							<tr>
 								<th class="align-middle" scope="row">TKT001</th>
 								<td class="align-middle">John Doe</td>
@@ -150,270 +169,87 @@
 								<td class="align-middle">Low</td>
 								<td class="align-middle">2023-01-25</td>
 							</tr>
-						</tbody>
-					</table>
-				</div>
-
-				<div class="_content">
-					<table
-						class="table table-bg-going table-responsive-md table-sm"
-					>
-						<thead class="table-dark">
 							<tr>
-								<th scope="col">Ticket No</th>
-								<th scope="col">Title</th>
-								<th scope="col">Requested By</th>
-								<th scope="col">Department</th>
-								<th scope="col">Date Requested</th>
-								<th scope="col">Target Date</th>
-								<th scope="col">Category</th>
-								<th scope="col">Status</th>
-								<th scope="col">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231019
-								</th>
-								<td class="align-middle">Transfer of PC</td>
+								<th class="align-middle" scope="row">TKT001</th>
 								<td class="align-middle">John Doe</td>
-								<td class="align-middle">Sales Department</td>
-								<td class="align-middle">2023-10-19</td>
-								<td class="align-middle">2023-10-23</td>
-								<td class="align-middle">Hardware Support</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-warning"
-										>ongoing</span
-									>
-								</td>
-								<td class="align-middle">
-									<button class="btn btn-primary">
-										view
-									</button>
-								</td>
+								<td class="align-middle">123-456-7890</td>
+								<td class="align-middle">Internet Connection</td>
+								<td class="align-middle">Tech Support</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-15</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231020
-								</th>
-								<td class="align-middle">
-									Additional Module Access
-								</td>
-								<td class="align-middle">Rick Shaw</td>
-								<td class="align-middle">HR Department</td>
-								<td class="align-middle">2023-10-20</td>
-								<td class="align-middle">2023-10-27</td>
-								<td class="align-middle">Access Elevation</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-warning"
-										>ongoing</span
-									>
-								</td>
-								<td class="align-middle">
-									<button class="btn btn-primary">
-										view
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT002</th>
+								<td class="align-middle">Jane Smith</td>
+								<td class="align-middle">987-654-3210</td>
+								<td class="align-middle">Landline Disconnection</td>
+								<td class="align-middle">Line Repair</td>
+								<td class="align-middle">SOLVED</td>
+								<td class="align-middle">Medium</td>
+								<td class="align-middle">2023-01-20</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231022
-								</th>
-								<td class="align-middle">PC Problem</td>
-								<td class="align-middle">Erika Weltz</td>
-								<td class="align-middle">HR Department</td>
-								<td class="align-middle">2023-10-22</td>
-								<td class="align-middle">2023-10-26</td>
-								<td class="align-middle">Hardware Support</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-warning"
-										>ongoing</span
-									>
-								</td>
-								<td class="align-middle">
-									<button class="btn btn-primary">
-										view
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT003</th>
+								<td class="align-middle">Mary Johnson</td>
+								<td class="align-middle">456-789-0123</td>
+								<td class="align-middle">Slow Broadband Speed</td>
+								<td class="align-middle">Network Team</td>
+								<td class="align-middle">SOLVED</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-10</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231004
-								</th>
-								<td class="align-middle">New Report</td>
-								<td class="align-middle">Sam Son</td>
-								<td class="align-middle">
-									Accounting Department
-								</td>
-								<td class="align-middle">2023-10-04</td>
-								<td class="align-middle">2023-10-10</td>
-								<td class="align-middle">Software Module</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-warning"
-										>ongoing</span
-									>
-									<span
-										class="badge rounded-pill text-bg-danger"
-										>overdue</span
-									>
-								</td>
-								<td class="align-middle">
-									<button class="btn btn-primary">
-										view
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT004</th>
+								<td class="align-middle">Robert Williams</td>
+								<td class="align-middle">321-098-7654</td>
+								<td class="align-middle">Billing Inquiry</td>
+								<td class="align-middle">Billing Team</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">Low</td>
+								<td class="align-middle">2023-01-25</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231010
-								</th>
-								<td class="align-middle">Bug Detected</td>
-								<td class="align-middle">Julie Davis</td>
-								<td class="align-middle">
-									Accounting Department
-								</td>
-								<td class="align-middle">2023-10-10</td>
-								<td class="align-middle">2023-10-16</td>
-								<td class="align-middle">Software Module</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-warning"
-										>ongoing</span
-									>
-									<span
-										class="badge rounded-pill text-bg-danger"
-										>overdue</span
-									>
-								</td>
-								<td class="align-middle">
-									<button class="btn btn-primary">
-										view
-									</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="_content">
-					<table
-						class="table table-striped table-responsive-md table-sm table-hover"
-						id="table-completed"
-					>
-						<thead class="table-dark">
-							<tr>
-								<th scope="col">Ticket No</th>
-								<th scope="col">Title</th>
-								<th scope="col">Requested By</th>
-								<th scope="col">Department</th>
-								<th scope="col">Date Requested</th>
-								<th scope="col">Date Completed</th>
-								<th scope="col">Category</th>
-								<th scope="col">Status</th>
-								<th scope="col" class="text-center">Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231008
-								</th>
-								<td class="align-middle">
-									Additional Module Access
-								</td>
-								<td class="align-middle">Erika Weltz</td>
-								<td class="align-middle">HR Department</td>
-								<td class="align-middle">2023-10-06</td>
-								<td class="align-middle">2023-10-08</td>
-								<td class="align-middle">Software Module</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-success"
-										>completed</span
-									>
-								</td>
-								<td class="align-middle text-center">
-									<button class="btn btn-info view-ticket">
-										view
-									</button>
-									<button class="btn btn-warning edit-ticket">
-										Edit
-									</button>
-									<button
-										class="btn btn-danger delete-ticket"
-									>
-										Delete
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT001</th>
+								<td class="align-middle">John Doe</td>
+								<td class="align-middle">123-456-7890</td>
+								<td class="align-middle">Internet Connection</td>
+								<td class="align-middle">Tech Support</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-15</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231001
-								</th>
-								<td class="align-middle">
-									New Report For Student Record
-								</td>
-								<td class="align-middle">Laura Davis</td>
-								<td class="align-middle">College Department</td>
-								<td class="align-middle">2023-10-01</td>
-								<td class="align-middle">2023-10-05</td>
-								<td class="align-middle">Software Module</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-success"
-										>completed</span
-									>
-								</td>
-								<td class="align-middle text-center">
-									<button class="btn btn-info view-ticket">
-										view
-									</button>
-									<button class="btn btn-warning edit-ticket">
-										Edit
-									</button>
-									<button
-										class="btn btn-danger delete-ticket"
-									>
-										Delete
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT002</th>
+								<td class="align-middle">Jane Smith</td>
+								<td class="align-middle">987-654-3210</td>
+								<td class="align-middle">Landline Disconnection</td>
+								<td class="align-middle">Line Repair</td>
+								<td class="align-middle">SOLVED</td>
+								<td class="align-middle">Medium</td>
+								<td class="align-middle">2023-01-20</td>
 							</tr>
 							<tr>
-								<th class="align-middle" scope="row">
-									TIX-20231009
-								</th>
-								<td class="align-middle">
-									Additional Module Access
-								</td>
-								<td class="align-middle">Erika Weltz</td>
-								<td class="align-middle">HR Department</td>
-								<td class="align-middle">2023-10-06</td>
-								<td class="align-middle">2023-10-08</td>
-								<td class="align-middle">Software Module</td>
-								<td class="align-middle">
-									<span
-										class="badge rounded-pill text-bg-success"
-										>completed</span
-									>
-								</td>
-								<td class="align-middle text-center">
-									<button class="btn btn-info view-ticket">
-										view
-									</button>
-									<button class="btn btn-warning edit-ticket">
-										Edit
-									</button>
-									<button
-										class="btn btn-danger delete-ticket"
-									>
-										Delete
-									</button>
-								</td>
+								<th class="align-middle" scope="row">TKT003</th>
+								<td class="align-middle">Mary Johnson</td>
+								<td class="align-middle">456-789-0123</td>
+								<td class="align-middle">Slow Broadband Speed</td>
+								<td class="align-middle">Network Team</td>
+								<td class="align-middle">SOLVED</td>
+								<td class="align-middle">High</td>
+								<td class="align-middle">2023-01-10</td>
 							</tr>
+							<tr>
+								<th class="align-middle" scope="row">TKT004</th>
+								<td class="align-middle">Robert Williams</td>
+								<td class="align-middle">321-098-7654</td>
+								<td class="align-middle">Billing Inquiry</td>
+								<td class="align-middle">Billing Team</td>
+								<td class="align-middle">IN PROGRESS</td>
+								<td class="align-middle">Low</td>
+								<td class="align-middle">2023-01-25</td>
+							</tr>
+
 						</tbody>
 					</table>
 				</div>
@@ -429,20 +265,20 @@
 			id="viewTicketModal"
 			tabindex="-1"
 			aria-labelledby="view-ticket-label"
-			aria-hidden="true"
-		>
+			aria-hidden="true">
 			<div class="modal-dialog modal-xl">
 				<div class="modal-content">
 					<div class="modal-ako modal-header bg-warning" id="modal-header">
 						<h1 class="modal-title fs-5" id="view-ticket-label">Ticket Information</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<!-- Modal Body -->
+					
+					<!-- MODAL BODY -->
 					<div class="modal-body">
 						<div class="container">
 							<form class="requires-validation" novalidate>
 								<div class="row">
-									<!-- CATEGORY -->
+									<!-- Ticket Number -->
 									<label for="category" class="col-form-label col-2 fw-bold text-end" >Ticket no.:</label >
 									<div class="col-4"> 
 										<input type="text" class="form-control form-control-sm" name="category" id="modals-ticket-no" value="Hardware Support" disabled required />
@@ -474,13 +310,11 @@
 											This field is required.
 										</div>
 									</div>
-
 									<!-- DATE CREATED -->
 									<label for="date-created" class="col-form-label col-2 fw-bold text-end" >Date Created:</label>
 									<div class="col-4">
-										<input type="date" class="form-control form-control-sm" name="date-created" id="date-created"value="2023-10-10" disabled />
+										<input type="date" class="form-control form-control-sm" name="date-created" id="date-created"value="2023-10-10" disabled/>
 									</div>
-
 									<!-- TARGET DATE -->
 									<label for="target-date" class="col-form-label col-2 fw-bold text-end" >Target Date:</label>
 									<div class="col-4">
@@ -489,7 +323,6 @@
 											This field is required.
 										</div>
 									</div>
-
 									<!-- REQUESTED BY -->
 									<label for="requested-by" class="col-form-label col-2 fw-bold text-end" >Customer:</label >
 									<div class="col-4">
@@ -505,13 +338,27 @@
 											This field is required.
 										</div>
 									</div>
-
+									<!-- Account number -->
+									<label for="account" class="col-form-label col-2 fw-bold text-end" >Account Number:</label >
+										<div class="col-4">
+											<input
+												type="text"
+												class="form-control form-control-sm"
+												name="account"
+												id="account-no"
+												value=""
+												disabled
+												required />
+											<div class="invalid-feedback">
+												This field is required.
+											</div>
+										</div>
 									<!-- ASSIGNED TEAM -->
 									<label
 										for="assigned-to"
-										class="col-form-label col-2 fw-bold text-end"
-										>Assigned Team:</label
-									>
+										class="col-form-label col-2 fw-bold text-end">
+										Assigned Team:
+									</label>
 									<div class="col-4">
 										<input
 											type="text"
@@ -519,25 +366,26 @@
 											name="assigned-to"
 											id="assigned-team"
 											value="John Michael De Vera"
-											disabled />
+											disabled/>
 									</div>
-
 									<!-- PRIORITY -->
 									<label
 										for="department"
-										class="col-form-label col-2 fw-bold text-end"
-										>PRIOTY:</label
-									>
+										class="col-form-label col-2 fw-bold text-end">Priority:</label>
 									<div class="col-4">
-										<input
+										<!-- <input
 											type="text"
 											class="form-control form-control-sm"
 											name="department"
 											id="priority"
 											value="Sales Department"
 											disabled
-											required
-										/>
+											required/> -->
+										<select class="mt-2" id="priority">
+											<option value="HIGH">HIGH</option>
+											<option value="MEDIUM">MEDIUM</option>
+											<option value="LOW">LOW</option>
+										</select>
 										<div class="invalid-feedback">
 											Please add your department.This
 											field is required.
@@ -547,9 +395,7 @@
 									<!-- DATE COMPLETED -->
 									<label
 										for="date-completed"
-										class="col-form-label col-2 fw-bold text-end"
-										>Date Completed:</label
-									>
+										class="col-form-label col-2 fw-bold text-end">Date Completed:</label>
 									<div class="col-4">
 										<input
 											type="text"
@@ -557,8 +403,7 @@
 											name="date-completed"
 											id="date-completed"
 											value="-"
-											disabled
-										/>
+											disabled/>
 									</div>
 								</div>
 							</form>
@@ -569,45 +414,60 @@
 						<button
 							type="button"
 							class="btn btn-secondary"
-							data-bs-dismiss="modal"
-						>
-							Close
-						</button>
+							data-bs-dismiss="modal">Close</button>
 						<button
 							type="button"
 							class="btn btn-warning d-none"
 							id="modal-btn-process"
-							data-bs-dismiss="modal"
-						>
-							Process Ticket
-						</button>
+							data-bs-dismiss="modal">Process Ticket</button>
 						<button
 							type="button"
 							class="btn btn-success d-none"
 							id="modal-btn-complete"
-							data-bs-dismiss="modal"
-						>
-							Complete Ticket
-						</button>
+							data-bs-dismiss="modal">Complete Ticket</button>
 						<button
 							type="button"
 							class="btn btn-success d-none"
 							id="modal-btn-save"
-							data-bs-dismiss="modal"
-						>
-							Save
-						</button>
+							data-bs-dismiss="modal">Save</button>
 						<button
 							type="button"
 							class="btn btn-primary d-none"
 							id="modal-btn-create"
-						>
-							Create Ticket
-						</button>
+							data-bs-dismiss="modal">Create Ticket</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- ------------ -->
+		<!-- CONFIRM MODAL -->
+		<!-- ------------ -->
+		<div class="modal fade" id="confirmTicketModal" tabindex="-1" aria-labelledby="confirm-ticket-label" aria-hidden="true">
+			<div class="modal-dialog modal-md ">
+			<div class="modal-content">
+				<div class="modal-header" id="modal-header">
+				<h1 class="modal-title fs-5" id="confirm-ticket-label">Confirm Record</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<!-- Modal Body -->
+				<div class="modal-body">
+				<div id="confirm-prompt">Are you sure you want to delete </div>
+				</div>
+				<!-- Modal Footer -->
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+				<button type="button" class="btn btn-success" id="modal-btn-yes">Yes</button>
+				</div>
+			</div>
+			</div>
+		</div>
+
+
+
+
+
+		<!-- DELETE MODAL  -->
 		<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 			<div class="modal-content">
