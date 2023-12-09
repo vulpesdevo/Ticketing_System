@@ -115,3 +115,7 @@
 ._content.active{
     display: block;
 }
+.bottom-right-toast{
+    position: fixed;
+    bottom: .3rem;
+}
