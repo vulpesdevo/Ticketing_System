@@ -518,19 +518,38 @@ function addTicketRecord() {
         const progresscardNum = document.querySelector('.progress-card-no');
         solvedcardNum.textContent = solvedRowCount;
         progresscardNum.textContent = progressCount;
-        });
+    });
     deleteButton = document.querySelectorAll('.delete-ticket');
     deleteButton.forEach(function(button){
     button.addEventListener('click', function(){
         let row = this.parentElement.parentElement;
         const modalDelete = document.querySelector("#deleteModal");
         const confirmDelBtn = modalDelete.querySelector("#modal-btn-delete");
+        solvedRowCount=0;
+        progressCount=0;
         confirmDelBtn.addEventListener("click", function(){
             activeRow.remove();
             console.log('removed');
             generateToast("text-bg-danger",`Ticket number<strong> ${ticketNo} </strong> DELETED`);
+            
+            const tableRows = document.querySelectorAll('#table-onqueue tbody tr');
+            tableRows.forEach(row => {
+                const statusCell = row.cells[5]; // Assuming the status is in the 6th column (index 5)
+                const statusValue = statusCell.textContent.trim().toUpperCase();
+                //console.log(statusValue+' '+solvedr); 
+                if (statusValue === 'SOLVED') {
+                    solvedRowCount++;
+                    
+                }else if (statusValue === 'IN PROGRESS') {
+                    progressCount++;
+                }
+            });
+            const solvedcardNum = document.querySelector('.solved-card-no');
+            const progresscardNum = document.querySelector('.progress-card-no');
+            solvedcardNum.textContent = solvedRowCount;
+            progresscardNum.textContent = progressCount;
+            });
         });
-    });
     });
 }
 let solvedRowCount =0;
@@ -681,11 +700,30 @@ document.addEventListener('DOMContentLoaded', function() {
         let row = this.parentElement.parentElement;
         const modalDelete = document.querySelector("#deleteModal");
         const confirmDelBtn = modalDelete.querySelector("#modal-btn-delete");
+        solvedRowCount=0;
+        progressCount=0;
         confirmDelBtn.addEventListener("click", function(){
             activeRow.remove();
             console.log('removed');
             generateToast("text-bg-danger",`Ticket number<strong> ${ticketNo} </strong> DELETED`);
-        });
+            
+            const tableRows = document.querySelectorAll('#table-onqueue tbody tr');
+            tableRows.forEach(row => {
+                const statusCell = row.cells[5]; // Assuming the status is in the 6th column (index 5)
+                const statusValue = statusCell.textContent.trim().toUpperCase();
+                //console.log(statusValue+' '+solvedr); 
+                if (statusValue === 'SOLVED') {
+                    solvedRowCount++;
+                    
+                }else if (statusValue === 'IN PROGRESS') {
+                    progressCount++;
+                }
+            });
+            const solvedcardNum = document.querySelector('.solved-card-no');
+            const progresscardNum = document.querySelector('.progress-card-no');
+            solvedcardNum.textContent = solvedRowCount;
+            progresscardNum.textContent = progressCount;
+            });
     });
     });
     // Add Button
