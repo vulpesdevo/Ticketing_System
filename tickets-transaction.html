@@ -12,8 +12,7 @@
 			defer
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-			crossorigin="anonymous"
-		></script>
+			crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="css/style.css" />
 		<link
 			rel="stylesheet"
@@ -28,9 +27,9 @@
                     <div class="card-header text-bg-warning text-center fw-bold">
                         ON PROCESS
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-bg-warning">
                         <div class="d-flex align-items-center justify-content-around py-1">
-                            <i class="bi bi-pencil-square fs-1 text-warning"></i>   
+                            <i class="bi bi-pencil-square fs-1"></i>   
                             <h2 class="progress-card-no">0</h2>
                         </div>
                     </div>
@@ -38,12 +37,12 @@
             </div>
             <div class="col-lg-6 my-3 solveed-card">
                 <div class="card" style=" border: .1rem solid green">
-                    <div class="card-header text-bg-success text-center fw-bold" style="color: green">
+                    <div class="card-header text-bg-success text-center fw-bold">
                         SOLVED
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-bg-success">
                         <div class="d-flex align-items-center justify-content-around py-1">
-                            <i class="bi bi-bookmark-check-fill fs-1" style="color: green;"></i>   
+                            <i class="bi bi-bookmark-check-fill fs-1 " ></i>   
                             <h2 class="solved-card-no">0</h2>
                         </div>
                     </div>
@@ -86,11 +85,11 @@
 								<th scope="col">Status</th>
 								<th scope="col">Priority</th>
 								<th scope="col">Deadline</th>
-								<th scope="col">Taget Date</th>
+								<th scope="col">Create Date</th>
 							</tr>
 						</thead>
 						<tbody class="table-group-divider">
-							<tr>
+							<tr class="selectable">
 								<th class="align-middle" scope="row">TKT001</th>
 								<td class="align-middle">John Doe</td>
 								<td class="align-middle">123-456-7890</td>
@@ -101,7 +100,7 @@
 								<td class="align-middle">2023-01-15</td>
 								<td class="align-middle">2023-01-15</td>
 							</tr>
-							<tr >
+							<tr class="selectable">
 								<th class="align-middle" scope="row">TKT002</th>
 								<td class="align-middle">Jane Smith</td>
 								<td class="align-middle">987-654-3210</td>
@@ -109,10 +108,10 @@
 								<td class="align-middle">Line Repair</td>
 								<td class="align-middle">CANCELLED</td>
 								<td class="align-middle">Medium</td>
-								<td class="align-middle">2023-01-20</td>
-								<td class="align-middle">2023-01-15</td>
+								<td class="align-middle">2023-12-23</td>
+								<td class="align-middle">2023-12-16</td>
 							</tr>
-							<tr>
+							<tr class="selectable">
 								<th class="align-middle" scope="row">TKT003</th>
 								<td class="align-middle">Mary Johnson</td>
 								<td class="align-middle">456-789-0123</td>
@@ -120,10 +119,10 @@
 								<td class="align-middle">Network Team</td>
 								<td class="align-middle">SOLVED</td>
 								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-10</td>
-								<td class="align-middle">2023-01-15</td>
+								<td class="align-middle">2023-12-25</td>
+								<td class="align-middle">2023-12-15</td>
 							</tr>
-							<tr>
+							<tr class="selectable">
 								<th class="align-middle" scope="row">TKT004</th>
 								<td class="align-middle">Robert Williams</td>
 								<td class="align-middle">321-098-7654</td>
@@ -131,141 +130,10 @@
 								<td class="align-middle">Billing Team</td>
 								<td class="align-middle">IN PROGRESS</td>
 								<td class="align-middle">Low</td>
-								<td class="align-middle">2023-01-25</td>
-								<td class="align-middle">2023-01-15</td>
+								<td class="align-middle">2023-12-25</td>
+								<td class="align-middle">2023-12-15</td>
 							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT001</th>
-								<td class="align-middle">John Doe</td>
-								<td class="align-middle">123-456-7890</td>
-								<td class="align-middle">Internet Connection</td>
-								<td class="align-middle">Tech Support</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-15</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT002</th>
-								<td class="align-middle">Jane Smith</td>
-								<td class="align-middle">987-654-3210</td>
-								<td class="align-middle">Landline Disconnection</td>
-								<td class="align-middle">Line Repair</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">Medium</td>
-								<td class="align-middle">2023-01-20</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT003</th>
-								<td class="align-middle">Mary Johnson</td>
-								<td class="align-middle">456-789-0123</td>
-								<td class="align-middle">Slow Broadband Speed</td>
-								<td class="align-middle">Network Team</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-10</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT004</th>
-								<td class="align-middle">Robert Williams</td>
-								<td class="align-middle">321-098-7654</td>
-								<td class="align-middle">Billing Inquiry</td>
-								<td class="align-middle">Billing Team</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">Low</td>
-								<td class="align-middle">2023-01-25</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT001</th>
-								<td class="align-middle">John Doe</td>
-								<td class="align-middle">123-456-7890</td>
-								<td class="align-middle">Internet Connection</td>
-								<td class="align-middle">Tech Support</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-15</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT002</th>
-								<td class="align-middle">Jane Smith</td>
-								<td class="align-middle">987-654-3210</td>
-								<td class="align-middle">Landline Disconnection</td>
-								<td class="align-middle">Line Repair</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">Medium</td>
-								<td class="align-middle">2023-01-20</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT003</th>
-								<td class="align-middle">Mary Johnson</td>
-								<td class="align-middle">456-789-0123</td>
-								<td class="align-middle">Slow Broadband Speed</td>
-								<td class="align-middle">Network Team</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-10</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT004</th>
-								<td class="align-middle">Robert Williams</td>
-								<td class="align-middle">321-098-7654</td>
-								<td class="align-middle">Billing Inquiry</td>
-								<td class="align-middle">Billing Team</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">Low</td>
-								<td class="align-middle">2023-01-25</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT001</th>
-								<td class="align-middle">John Doe</td>
-								<td class="align-middle">123-456-7890</td>
-								<td class="align-middle">Internet Connection</td>
-								<td class="align-middle">Tech Support</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-15</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT002</th>
-								<td class="align-middle">Jane Smith</td>
-								<td class="align-middle">987-654-3210</td>
-								<td class="align-middle">Landline Disconnection</td>
-								<td class="align-middle">Line Repair</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">Medium</td>
-								<td class="align-middle">2023-01-20</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT003</th>
-								<td class="align-middle">Mary Johnson</td>
-								<td class="align-middle">456-789-0123</td>
-								<td class="align-middle">Slow Broadband Speed</td>
-								<td class="align-middle">Network Team</td>
-								<td class="align-middle">SOLVED</td>
-								<td class="align-middle">High</td>
-								<td class="align-middle">2023-01-10</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
-							<tr>
-								<th class="align-middle" scope="row">TKT004</th>
-								<td class="align-middle">Robert Williams</td>
-								<td class="align-middle">321-098-7654</td>
-								<td class="align-middle">Billing Inquiry</td>
-								<td class="align-middle">Billing Team</td>
-								<td class="align-middle">IN PROGRESS</td>
-								<td class="align-middle">Low</td>
-								<td class="align-middle">2023-01-25</td>
-								<td class="align-middle">2023-01-15</td>
-							</tr>
+							
 
 						</tbody>
 					</table>
@@ -293,7 +161,7 @@
 					<!-- MODAL BODY -->
 					<div class="modal-body">
 						<div class="container">
-							<form class="requires-validation" novalidate>
+							<form class="was-validated" novalidate>
 								<div class="row">
 									<!-- Ticket Number -->
 									<label for="category" class="col-form-label col-2 fw-bold text-end" >Ticket no.:</label >
@@ -310,6 +178,11 @@
 										<input type="text" class="form-control form-control-sm text-bg-primary" name="field-status"
 										value ="IN PROGRESS"
 										id="field-status" disabled required />
+										<input type="text" class="form-control form-control-sm text-bg-primary" name="field-status2"
+										value ="IN PROGRESS"
+										id="field-status2" hidden/>
+										<button id="cancel-btn" type="button" class="btn btn-secondary mt-2 mb-3 me-3" >CANCEL</button>
+          <button id="solve-btn" type="button" class="btn btn-success mt-2 mb-3 ">SET SOLVED</button>
 									</div>
 
 									<!-- TITLE -->
@@ -324,7 +197,7 @@
 									<!-- DESCRIPTION -->
 									<label for="ticket-description" class="col-form-label col-2 fw-bold text-end" >Ticket Description:</label >
 									<div class="col-10">
-										<textarea class="form-control form-control-sm mb-2" name="ticket-description" id="ticket-description" rows="3" disabled required > Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi esse provident mollitia aut illum perspiciatis hic sint similique consequuntur, odio aspernatur impedit excepturi praesentium architecto, voluptates dolore voluptas dolores dicta!</textarea>
+										<textarea class="form-control form-control-sm mb-2" name="ticket-description" id="ticket-description" rows="3" disabled required> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi esse provident mollitia aut illum perspiciatis hic sint similique consequuntur, odio aspernatur impedit excepturi praesentium architecto, voluptates dolore voluptas dolores dicta!</textarea>
 										<div class="invalid-feedback">
 											This field is required.
 										</div>
@@ -385,7 +258,7 @@
 											name="assigned-to"
 											id="assigned-team"
 											value="John Michael De Vera"
-											disabled/>
+											disabled required/>
 									</div>
 									<!-- PRIORITY -->
 									<label
@@ -400,7 +273,7 @@
 											value="Sales Department"
 											disabled
 											required/> -->
-										<select class="mt-2 form-control" id="priority">
+										<select class="mt-2 form-control" id="priority" required>
 											<option value="HIGH">HIGH</option>
 											<option value="MEDIUM">MEDIUM</option>
 											<option value="LOW">LOW</option>
@@ -411,19 +284,7 @@
 										</div>
 									</div>
 
-									<!-- DATE COMPLETED -->
-									<label
-										for="date-completed"
-										class="col-form-label col-2 fw-bold text-end">Date Completed:</label>
-									<div class="col-4">
-										<input
-											type="text"
-											class="form-control form-control-sm"
-											name="date-completed"
-											id="date-completed"
-											value="-"
-											disabled/>
-									</div>
+									
 								</div>
 							</form>
 						</div>
