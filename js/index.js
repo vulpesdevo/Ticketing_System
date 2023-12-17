@@ -700,11 +700,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let row = this.parentElement.parentElement;
         const modalDelete = document.querySelector("#deleteModal");
         const confirmDelBtn = modalDelete.querySelector("#modal-btn-delete");
-        solvedRowCount=0;
-        progressCount=0;
+        
         confirmDelBtn.addEventListener("click", function(){
             activeRow.remove();
             console.log('removed');
+            solvedRowCount=0;
+            progressCount=0;
             generateToast("text-bg-danger",`Ticket number<strong> ${ticketNo} </strong> DELETED`);
             
             const tableRows = document.querySelectorAll('#table-onqueue tbody tr');
